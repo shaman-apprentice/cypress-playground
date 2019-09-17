@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random useless page</title>
+  </head>
+
+  <body>
+    <h2>Some random static content - below "dynamic" server content</h2>
+
+    <div id="server-content"></div>
+    <script>
+      const req = new XMLHttpRequest();
+      req.open("GET", "http://localhost:8080", true);
+      req.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          document.querySelector("#server-content").innerHTML =
+            req.responseText;
+        }
+      };
+      req.send();
+    </script>
+  </body>
+</html>
