@@ -16,6 +16,12 @@ http
       case "/some-changing-content.html":
         serveFile(response, "./src/some-changing-content/index.html");
         return;
+      case "/redirect-me":
+        response.writeHead(302, {
+          Location: "/dynamic-content.html"
+        });
+        response.end();
+        return;
       default:
         response.statusCode = 404;
         response.end();
