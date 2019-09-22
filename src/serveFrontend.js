@@ -8,7 +8,10 @@ http
   .createServer((request, response) => {
     switch (request.url) {
       case "/dynamic-content.html":
-        onDynamicContentRoute(request, response);
+        serveFile(response, "./src/dynamic-content/index.html");
+        return;
+      case "/timed-content.html":
+        serveFile(response, "./src/timed-content/index.html");
         return;
       default:
         response.statusCode = 404;
@@ -19,8 +22,8 @@ http
     console.log(`listening on ${HOST}:${PORT}`);
   });
 
-const onDynamicContentRoute = (requst, response) => {
-  fs.readFile("./src/dynamic-content/index.html", (err, data) => {
+const serveFile = (response, path) => {
+  fs.readFile(path, (err, data) => {
     response.writeHead(200, {
       "Content-Type": "text/html",
       "Content-Length": data.length

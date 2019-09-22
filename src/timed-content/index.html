@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random useless page</title>
+  </head>
+
+  <body>
+    <script>
+      appendElemAfter(1);
+      appendElemAfter(3);
+
+      function appendElemAfter(time) {
+        setTimeout(() => {
+          const elem = document.createElement("div");
+          elem.setAttribute("id", `after-${time}-sec`);
+          elem.innerHTML = `after ${time}sec`;
+          document.body.appendChild(elem);
+        }, time * 1000);
+      }
+    </script>
+  </body>
+</html>
