@@ -6,7 +6,10 @@ describe("Cypress route playground", () => {
     cy.visit("localhost:80/dynamic-content.html");
 
     cy.wait("@myXHttpRequest").then(myXHttpRequest => {
-      expect(myXHttpRequest.status).to.equal(200);
+      expect(
+        myXHttpRequest.status,
+        "check you have started the related backend server (`yarn b-for-c`)"
+      ).to.equal(200);
     });
   });
 });
