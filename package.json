@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./frontend/serveFrontend.js",
+    "start": "node ./src/serveFrontend.js",
     "debug": "nodemon --inspect=127.0.0.1:9229 ./src/serveFrontend.js",
     "b-for-c": "node ./src/dynamic-content/backend-server.js",
     "test": "yarn cypress open"
