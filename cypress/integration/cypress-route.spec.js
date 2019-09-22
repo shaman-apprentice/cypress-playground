@@ -1,12 +1,12 @@
-describe("My First Test", () => {
+describe("Cypress route playground", () => {
   it("dig into requests", () => {
     cy.server();
     cy.route("localhost:8080").as("myXHttpRequest");
 
-    cy.visit("localhost:80");
+    cy.visit("localhost:80/dynamic-content.html");
 
     cy.wait("@myXHttpRequest").then(myXHttpRequest => {
-      debugger;
+      expect(myXHttpRequest.status).to.equal(200);
     });
   });
 });

@@ -14,7 +14,9 @@ http
     result.setHeader("Access-Control-Allow-Headers", "*");
 
     result.writeHead(200, { "Content-Type": "text/html" });
-    result.write("Hello World");
+    result.write(
+      "Hello from backend-server with some magnificent dynamic content (this text)"
+    );
 
     result.end();
   })
