@@ -13,6 +13,9 @@ http
       case "/timed-content.html":
         serveFile(response, "./src/timed-content/index.html");
         return;
+      case "/some-changing-content.html":
+        serveFile(response, "./src/some-changing-content/index.html");
+        return;
       default:
         response.statusCode = 404;
         response.end();
